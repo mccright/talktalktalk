@@ -17,6 +17,7 @@ import time
 import threading
 # replaced dumbdbm with dbm:
 import dbm
+from dbm import dumb
 import random
 import re
 import daemon

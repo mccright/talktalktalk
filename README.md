@@ -15,11 +15,11 @@ The best way to test TalkTalkTalk is to install it locally on a Windows or Linux
     mkdir projectDir                                                # Make a project directory
     cd projectDir                                                   # Change directory into the project directory
     git clone https://github.com/josephernest/talktalktalk.git      # or unzip talktalktalk-master.zip
-    python -m venv venv                                             # Set up a virtual environment
-    venv/bin/activate                                               # Activate the virtual environment
-    pip install bottle bleach gevent gevent-websocket               # these Python module are required, compilation can 
+    python3 -m venv venv                                            # Set up a virtual environment
+    source venv/bin/activate                                        # Activate the virtual environment
+    python3 -m pip install bottle bleach gevent gevent-websocket    # these Python module are required, compilation can 
     cd talktalktalk                                                 #                              take up to 3 minutes
-    python talktalktalk.py start                                    # or use ./talktalktalk.py start instead to have a 
+    python3 talktalktalk.py start                                    # or use ./talktalktalk.py start instead to have a 
                                                                     #                     proper name when using "top"
 
 Open your browser at the address `127.0.0.1:9000`, it works!
@@ -91,3 +91,18 @@ A: There is a Dockerfile in the root of the project directory. After clone, simp
 docker run -d --name=talktalktalk -p 9000:9000 talktalktalk
 ```
 
+ToDo  
+----
+Fix the remaining problem that shows up in the log file as: 
+```text
+Traceback (most recent call last):
+  File "/mnt/d/My-Docs/github/venv/lib/python3.8/site-packages/bottle.py", line 868, in _handle
+    return route.call(**args)
+  File "/mnt/d/My-Docs/github/venv/lib/python3.8/site-packages/bottle.py", line 1748, in wrapper
+    rv = callback(*a, **ka)
+  File "talktalktalk.py", line 39, in wrapper
+    callback(request.environ.get('wsgi.websocket'), *args, **kwargs)
+  File "talktalktalk.py", line 108, in chat
+    received_message = received_message.decode('utf8')
+AttributeError: 'str' object has no attribute 'decode'
+```
