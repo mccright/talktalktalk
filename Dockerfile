@@ -1,4 +1,4 @@
-FROM python:2.7
+FROM python:3.10
 
 RUN pip install bottle bleach gevent gevent-websocket
 ADD . /opt/app/talktalktalk

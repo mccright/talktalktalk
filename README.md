@@ -12,7 +12,11 @@ Installation
 ----
 The best way to test TalkTalkTalk is to install it locally on a Windows or Linux machine. You need to have Python installed. Just do:
 
+    mkdir projectDir                                                # Make a project directory
+    cd projectDir                                                   # Change directory into the project directory
     git clone https://github.com/josephernest/talktalktalk.git      # or unzip talktalktalk-master.zip
+    python -m venv venv                                             # Set up a virtual environment
+    venv/bin/activate                                               # Activate the virtual environment
     pip install bottle bleach gevent gevent-websocket               # these Python module are required, compilation can 
     cd talktalktalk                                                 #                              take up to 3 minutes
     python talktalktalk.py start                                    # or use ./talktalktalk.py start instead to have a 
