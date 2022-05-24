@@ -105,7 +105,7 @@ def main():
                 received_message = ws.receive()
                 if received_message is not None:
 
-                    received_message = received_message.decode('utf8')
+                    received_message = received_message.decode('utf8')        # ToDo: Deal with the decode error. McCright
                     if len(received_message) > 4096:      # this user is probably a spammer
                         ws.send(json.dumps({'type': 'flood'}))
                         break
